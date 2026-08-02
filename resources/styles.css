@@ -1,0 +1,208 @@
+body{
+  background:  linear-gradient(#00000099, #00000099), url("../media/background.jpg") no-repeat;
+  image-rendering: optimizespeed;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  color: white;
+  font-family: "VCR OSD Mono", sans-serif;
+  text-align: center;
+  background-size: cover;
+
+
+}
+
+@font-face {
+  font-family: "VCR OSD Mono";
+  src: url("VCR_OSD_MONO_1.001.woff2") format("woff2"),
+       url("VCR_OSD_MONO_1.001.ttf") format("truetype");
+}
+
+
+::-webkit-scrollbar {
+  display: none; 
+}
+
+.ascii {
+  font-family: monospace; 
+  font-size: 16px;          
+  line-height: 16px;        
+  text-align: center;
+  white-space: pre;   
+  margin-top: 40px; 
+  
+}
+
+#preload {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 3rem;
+  transition: 1s;
+}
+
+
+#preload p {
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1.25rem;
+}
+
+#hidden {
+  opacity: 0;
+  transition: 0s;
+}
+
+#hidden.disabled {
+  pointer-events: none;
+}
+
+
+#main p {
+  color: #ffffff;
+}
+  
+#main {
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  text-align: center;
+}
+
+.widget-container {
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: column;
+}
+
+.widget-container a {
+    color: inherit;
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 265px;
+  height: 215px;
+  margin: 10px;
+  margin-top: 80px;
+  background-color: #1717178c;
+  border-radius: 10px;   
+  border: 2px solid #ffffff; 
+  transition: 
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out,
+    opacity 0.2s ease-out;
+
+}
+
+.widget:hover {
+  opacity: 0.9; 
+  cursor: pointer;
+  transform: translateY(-8px);   
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6); 
+}
+
+.widget span {
+  margin-top: 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.widget:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.neon-text {
+  text-shadow:
+      0 0 7px #8d8d8d,
+      0 0 14px #f1f1f1;
+}
+
+.neon-box {
+  box-shadow: 0 0 7px #ffffff;
+  border-radius: 10px
+}
+
+.modal-open {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-closed {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-open {
+    opacity: 1;
+}
+
+.overlay-closed {
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+
+  body {
+    background-image: url("../media/mobile-back.jpg"); 
+    background-position: center top;
+    background-size: cover;
+  }
+
+  #main {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    margin: 10px auto 40px;  
+    width: 100%;
+  }
+
+  .widget-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .widget {
+    width: 80%;
+    max-width: 320px;
+    margin-top: 20px;   
+  }
+
+  .ascii {
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 20px;
+  }
+
+  small {
+    text-shadow:
+    0 0 7px #000000,
+    0 0 14px #000000;
+    color: white;
+
+  }
+
+  .modal {
+    align-items: flex-start !important;  /* pisa el items-center de Tailwind porque si no no se que hacer */
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* El cuadro gris del modal (el div .relative) */
+  .modal .relative {
+    width: 100%;
+    max-width: 95%;
+    max-height: calc(100vh - 3rem);  
+    overflow-y: auto;                
+  }
+}
+
+
