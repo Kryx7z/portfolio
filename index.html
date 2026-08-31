@@ -7,11 +7,12 @@
      <link rel="stylesheet" type="text/css" href="resources/styles.css">
     <link rel="icon" type="image/x-icon" href="media/icon.ico">
      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> <!-- i hate it -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <title>Kryx.lol</title>
 </head>
 <body class="cursor-default">
 
-
+<div id="particles-js"></div>
 
 <div id="preload">
 
@@ -33,82 +34,43 @@
 ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
     </pre>
 </h1>
-<h2>Temporary domain.</h2>
+<h2>Everything’s legal!</h2>
 
 
         <div id="main">
         
-                <br><br>
                 <div class="widget-container">
 
-                        <a href="#" class="widget neon-box neon-text openCard" data-target="modal-about">
+                    <a href="#" class="widget neon-box neon-text openCard" data-target="modal-about">
                         <img src="media/about.png" alt="about"/>
                         <span>/about_me</span>
-                        </a>
+                    </a>
 
                     <a href="#" class="widget neon-box neon-text openCard" data-target="modal-projects">
-                            <img src="media/projects.png" alt="projects"/>
-                            <span>/projects</span>
-                            </a>
+                        <img src="media/projects.png" alt="projects"/>
+                        <span>/projects</span>
+                    </a>
 
                     <a href="#" class="widget neon-box neon-text openCard" data-target="modal-setup">
-                            <img src="media/setup.png" alt="setup"/>
-                            <span>/setup</span>
-                            </a>
-                
-                    <a href="#" class="widget neon-box neon-text openCard" data-target="modal-links">
-                        <img src="media/links.png" alt="resources"/>
-                        <span>/links</span>
-                        </a>  
+                        <img src="media/setup.png" alt="setup"/>
+                        <span>/setup</span>
+                    </a>
+
+                    <a href="https://archive.kryx.lol" class="widget neon-box neon-text" target="_blank">
+                        <img src="media/archive.png" alt="archive"/>
+                        <span>/archive</span>
+                    </a>
+
                 </div>
                 <br>
-                <h2><a href="#" class="neon-text openCard" data-target="modal-disclaimer">[DISCLAIMER]</a></h2>
+                <small><a href="https://github.com/Kryx7z/portfolio" class="neon-text" target="_blank">[Website source code]</a></small>
                 <br>
-                <small><a href="https://github.com/kryxd420/My-Website" class="neon-text" target="_blank">[Website source code]</a></small>
-                <br>
-                <small>Last update: 10/1/2026</small>
+                <small>Last update: 30/8/2026</small>
 
         </div>
 
 
 
-</div>
-
-
-<!-- modal disclaimer -->
-<div id="modal-disclaimer" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
-
-    <div class="overlay absolute inset-0 backdrop-blur-md bg-black/20 opacity-0 transition-opacity duration-300"></div>
-
-    <div class="relative bg-neutral-900/80 border border-white rounded-lg p-6 max-w-lg shadow-xl text-white z-10 neon-box text-left">
-        <h2 class="text-3xl mb-4 neon-text">Disclaimer</h2>
-        <p class="mb-6">i won´t say any date where i lost access to the og domain (kryx.dev) because i never did. The domain has always been on my posession.</p>
-        <p class="mb-6">Lets get to the point, only my Discord and Twitter were affected, no other data has been compromised, my PGP key is NOT compromised, my contact email is NOT compromised, NOTHING REGARDING THE OLD DOMAIN OR ANYTHING OTHER THAN THOSE TWO THINGS WERE COMRPOMISED. im not coming back to the old domain even if i have access to it, neither im going to change the last update date on this website since im going to make a new one and this version is just a placeholder. i just changed some bs, fucked up some spaces and called it a day.</p>
-        <p>"Why so late?"</p>
-        <p>bro if you´re asking this then you´re the one who is late to the party.</p>
-        <div class="text-center mt-6">
-            <button class="closeCard text-white underline hover:text-gray-300 neon-text cursor-pointer">
-                Close
-            </button>
-        </div>
-    </div>
-</div>
-
-
-<!-- modal polla -->
-<div id="modal-links" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
-
-    <div class="overlay absolute inset-0 backdrop-blur-md bg-black/20 opacity-0 transition-opacity duration-300"></div>
-
-    <div class="relative bg-neutral-900/80 border border-white rounded-lg p-6 max-w-lg shadow-xl text-white z-10 neon-box text-left">
-        <h2 class="text-3xl mb-4 neon-text">i wanna kms</h2>
-        <p class="mb-6">This was a section i was working on, i guess its cancelled now lmao.</p>
-        <div class="text-center mt-6">
-            <button class="closeCard text-white underline hover:text-gray-300 neon-text cursor-pointer">
-                Close
-            </button>
-        </div>
-    </div>
 </div>
 
 
@@ -116,18 +78,18 @@
 
 <div id="modal-about" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
 
-        <div class="overlay absolute inset-0 backdrop-blur-md bg-black/20 opacity-0 transition-opacity duration-300"></div>
+        <div class="overlay absolute inset-0 bg-black/20"></div>
 
 
-        <div class="relative bg-neutral-900/80 border border-white rounded-lg p-6 max-w-lg shadow-xl text-white z-10 neon-box text-left">
+        <div class="relative modal-card bg-neutral-900/80 border border-white rounded-lg p-6 max-w-2xl w-full shadow-xl text-white z-10 neon-box text-left">
         <h2 class="text-3xl mb-4 neon-text">About Me</h2>
-        <p class="mb-6">Hey! I’m Kryx, a technology student and self-taught enthusiast from Spain. In terms of technology, I’m interested in networking, cybersecurity, and a bit of programming (i dont really like it tbh). I enjoy experimenting with servers on my Raspberry Pi and other devices. Even though I love technology, it’s not my only hobby. I also enjoy music, skateboarding, and fashion.</p>
-        <p class="mb-6">I made this website out of boredom really. If I ever apply for a j*b, I won’t be showing this website, it’s just a simple portfolio for my online persona.</p>
+        <p class="mb-6">Hey! I’m Kryx, a technology enthusiast from Spain. In terms of technology, I’m interested in networking, cybersecurity, and a bit of programming (i dont really like it tbh). I enjoy experimenting with servers on my Raspberry Pi and other devices. Even though I love technology, it’s not my only hobby. I also enjoy music, skateboarding, and fashion.</p>
+        <p class="mb-6">I made this website out of boredom just to do something. If I ever apply for a j*b, I won’t be showing this website, it’s just a simple portfolio for my online persona.</p>
         <p class="mb-6">Some of my skils include: </p>
 
 
 
-        <div class="flex justify-between space-x-8"> 
+        <div class="modal-stack text-left">
 
             <div class="flex-1">
                 <p class="mb-2" style="text-decoration: underline;">Programming:</p> 
@@ -155,14 +117,15 @@
         </div>
             <br>
            <p class="mb-2 text-center">Conctact:</p>
-           <p class="mb-2 text-center">Discord: private, ask first</p>
+           <p class="mb-2 text-center">Discord: @Kryx7z</p>
            <p class="mb-2 text-center">Twitter/X: @Kryx7z</p>
-           <p class="mb-2 text-center">Email: sure bud</p>
+           <p class="mb-2 text-center">Email: unavaliable at the moment.</p>
+           <p class="mb2 text-center">Dont waste my time if you`re going to contact me.</p>
 
 
                 <div class="text-center mt-6"> 
-            <button class="closeCard text-white underline hover:text-gray-300 neon-text cursor-pointer">
-                Close
+            <button class="closeCard text-white hover:text-gray-300 neon-text cursor-pointer">
+                [Close]
             </button>
         </div>
     </div>
@@ -172,20 +135,19 @@
 <!-- modal projects -->
 <div id="modal-projects" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
 
-    <div class="overlay absolute inset-0 backdrop-blur-md bg-black/20 opacity-0 transition-opacity duration-300"></div>
+    <div class="overlay absolute inset-0 bg-black/20"></div>
 
 
-    <div class="relative bg-neutral-900/80 border border-white rounded-lg p-6 max-w-lg shadow-xl text-white z-10 neon-box text-left">
+    <div class="relative modal-card bg-neutral-900/80 border border-white rounded-lg p-6 max-w-2xl w-full shadow-xl text-white z-10 neon-box text-left">
         <h2 class="text-3xl mb-4 neon-text">My Projects</h2>
         <p class="mb-6">Currently, I don’t have any big public projects that are active or worth noting. I’ve contributed to several open-source projects and worked on private ones, either on my own or with friends.</p>
         <p class="mb-6">Some of my projects that are actually worth noting are:</p>
 
-        <div class="flex justify-between space-x-8"> 
+        <div class="modal-stack"> 
 
             <div class="flex-1">
                 <ul class="list-disc list-inside ml-2"> 
-                    <li>Kuromi-Multitool</li> <p>A .bat multitool i made to practice .bats because my teacher wanted us to learn them, (yes, really) it works for optimize, clean, desinfect and manage your system. Currently paused.</p>
-                    <br>
+                    
                     <a href="https://web.archive.org/web/20250907135331/https://tetoware.neocities.org/" class="neon-text text-decoration:underline" target="_blank"><li>TetoWare.cc</li></a> <p>A currently abandoned and dead-forever (at least on my part) private external cheat for cs2 i made with a teamate.</p>
 
                 </ul>
@@ -194,8 +156,8 @@
         </div>
 
                 <div class="text-center mt-6"> 
-            <button class="closeCard text-white underline hover:text-gray-300 neon-text cursor-pointer">
-                Close
+            <button class="closeCard text-white hover:text-gray-300 neon-text cursor-pointer">
+                [Close]
             </button>
         </div>
     </div>
@@ -205,56 +167,69 @@
 <!-- modal setups -->
 <div id="modal-setup" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
 
-    <div class="overlay absolute inset-0 backdrop-blur-md bg-black/20 opacity-0 transition-opacity duration-300"></div>
+    <div class="overlay absolute inset-0 bg-black/20"></div>
 
 
-    <div class="relative bg-neutral-900/80 border border-white rounded-lg p-6 max-w-lg shadow-xl text-white z-10 neon-box text-left">
+    <div class="relative modal-card bg-neutral-900/80 border border-white rounded-lg p-6 max-w-2xl w-full shadow-xl text-white z-10 neon-box text-left">
         <h2 class="text-3xl mb-4 neon-text">My Setup</h2>
-        <p class="mb-6">Although I don't really like having the latest tech (which is going to sound hypocritical), I also don't like missing out on features or having to keep track of how many days of support i have left on my product that just launched.</p>
-        <p class="mb-6">In my daily basis i use different pieces of tech, but here are the most "important":</p>
 
-        <div class="flex justify-between space-x-8"> 
+        <div class="browser-window">
 
-            <div class="flex-1">
-                <ul class="list-disc list-inside ml-2"> 
-                    <li>My main PC</li> <p>built it with a friend, it has an RTX 5070, with a Ryzen 7 7700X, 32GB of RAM and a 480GB SSD, it used to have a 1TB nvme, i too wonder where it is now...</p>
-                    <br>
-                    <li>Raspberry pi 4</li> <p>i use it as my homeserver with dietpi, it currently runs Nextcloud for my own cloud, a Pi-hole, and a Jellyfin server with media that i clearly own in real life.</p>
-                    <br>
-                    <li>Thinkpad E470</li> <p>i haven't seen many people with this model of Thinkpad, got it for 80€ and replaced the battery of it, i also upgraded it to 12GB of RAM DDR4. For the price i found it kinda fair, currently it runs on Debian LTS </p>
-                    <br>
-                    <li>iPad A16</li> <p>got it during <em>The incident,</em> i also got it before the price went up, mainly used for note-taking. </p>
-                    <br>
-                    <li>iPhone 16e</li> <p>i wonder where my iPhone 13 is! </p>
-                </ul>
+            <div class="browser-tabs">
+                <button class="browser-tab active" data-tab="main">Main</button>
+                <button class="browser-tab" data-tab="daily">Daily</button>
+                <button class="browser-tab" data-tab="server">Server</button>
+                <button class="browser-tab" data-tab="misc">Miscellaneous</button>
             </div>
-            
+
+            <div class="browser-body">
+
+                <div class="tab-panel active" data-panel="main">
+                    <p class="mb-4">Although I don't really like having the latest tech (which is going to sound hypocritical), I also don't like missing out on features or having to keep track of how many days of support i have left on my product that just launched.</p>
+                    <p>In my daily basis i use different pieces of tech, but here are the most "important", each with its own tab up above:</p>
+                </div>
+
+                <div class="tab-panel" data-panel="daily">
+                    <p class="tab-panel-title">My main PC</p>
+                    <p class="mb-4">built it with a friend, it has an RTX 5070, with a Ryzen 7 7700X, 32GB of RAM and a 480GB SSD, it used to have a 1TB nvme, i too wonder where it is now...</p>
+                    <p class="tab-panel-title">Thinkpad E470</p>
+                    <p>i haven't seen many people with this model of Thinkpad, got it for 80€ and replaced the battery of it, i also upgraded it to 12GB of RAM DDR4. For the price i found it kinda fair, currently it runs on Debian LTS</p>
+                </div>
+
+                <div class="tab-panel" data-panel="server">
+                    <p class="tab-panel-title">Raspberry Pi 4</p>
+                    <p class="mb-4">Before you call me a "performative shizo" or sum bs like that, let me explain each service i run here and why. Of course i dont self-host everything for extrictly privacy reasons, i use an iPhone and i post on twitter while i watch YouTube to eat and scroll on instagram. This was more of a fun project because i had the opportunity to get all i needed for the server for free, including the raspberry pi 4 and the 4TB disk.</p>
+                    <p class="tab-panel-title">Nextcloud</p>
+                    <p class="mb-4">Besides Drive, tell me any other free alternative that doesn´t suck and gives you a razonable amount of storage, im a person who needs A TON of storage, drive wasn´t enough, google at the moment was (and is) one of my less favorite companies so i had to find an alternative. By using Nextcloud im able to have full control of my files and not them getting stolen since im a person of interest and/or being used to train AIs, i also have more storage, in my server i have 1TB dedicated to NextCloud while the free plan of drive gives you 15GB. Right now the only Google service i use its YouTube.</p>
+
+                    <p class="tab-panel-title">Jellyfin</p>
+                    <p class="mb-4">Im from Spain where streaming movies can be a pain in the ass, rn every country has their corresponding lenguage to the backrooms movie in streaming except or Spain, or South Park (i love it) where the last seasons are not avaliable here but are actually dubbed to castillian. Obsession too, its not in streaming but the castillian version leaked somehow, the point i want to make is that i shouldn´t be going trough several streaming services that are probably going to remove the media i want to watch because spanish people LOOOVE their shitty comedy shows and theres not any demand for any show/movie that requires more than  30 of IQ. I should have everything i want on a single service whenever i want. self-hosting my media its the easy way out</p>
+
+                    <p class="tab-panel-title">MeTube</p>
+                    <p class="mb-4">Spanish goverment is known for blocking websites like <a href="https://x.com/kryx7z/status/2059223221723951453" target="_blank" class="neon-text">media downloaders and others.</a> Also most of the ones you find on a search are trash and dont accept half the services MeTube does.</p>
+
+                    <p class="tab-panel-title">Aria2</p>
+                    <p>My fucking SSD explodes if i try downloading something on it, i just download all my stuff to the server and send it to my main computer, it works well and it stops my SSD from going 100% when im doing and downloading something at the same time.</p>
+                </div>
+
+                <div class="tab-panel" data-panel="misc">
+                    <p class="tab-panel-title">iPad A16</p>
+                    <p class="mb-4">got it during <em>The incident,</em> i also got it before the price went up, mainly used for note-taking.</p>
+                    <p class="tab-panel-title">iPhone 16e</p>
+                    <p>i wonder where my iPhone 13 is!</p>
+                </div>
+
+            </div>
+
         </div>
 
                 <div class="text-center mt-6"> 
-            <button class="closeCard text-white underline hover:text-gray-300 neon-text cursor-pointer">
-                Close
+            <button class="closeCard text-white hover:text-gray-300 neon-text cursor-pointer">
+                [Close]
             </button>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <audio
@@ -267,6 +242,117 @@
       style="display: none"
     ></audio>
 <script>
+        particlesJS('particles-js', {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.2,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": false,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": false,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
+
         document.getElementById("music").pause();
         document.getElementById("hidden").style = "opacity: 0; transition: 2s;";
     
@@ -291,6 +377,25 @@
 
 
         // MODALES 
+
+        // Bloqueo de scroll del fondo mientras haya algún modal abierto
+        // (el CSS decide si esto aplica según el dispositivo/tamaño de pantalla)
+        let openModalCount = 0;
+
+        function lockBodyScroll() {
+            openModalCount++;
+            document.documentElement.classList.add('modal-locked');
+            document.body.classList.add('modal-locked');
+        }
+
+        function unlockBodyScroll() {
+            openModalCount = Math.max(0, openModalCount - 1);
+            if (openModalCount === 0) {
+                document.documentElement.classList.remove('modal-locked');
+                document.body.classList.remove('modal-locked');
+            }
+        }
+
         document.querySelectorAll('.openCard').forEach(card => {
             card.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -298,6 +403,7 @@
                 const modal = document.getElementById(modalId);
 
                 modal.classList.remove('hidden');
+                lockBodyScroll();
 
                 const overlay = modal.querySelector('.overlay');
 
@@ -320,6 +426,7 @@
             const closeModal = () => {
             modal.classList.remove('modal-open');
             modal.classList.add('modal-closed');
+            unlockBodyScroll();
 
             const overlay = modal.querySelector('.overlay');
             overlay.classList.remove('overlay-open');
@@ -335,6 +442,30 @@
             closeBtn.addEventListener('click', closeModal);
             overlay.addEventListener('click', closeModal);
         });
+
+        // TABS MODAL SETUP (estilo navegador)
+        const setupModal = document.getElementById('modal-setup');
+        if (setupModal) {
+            const tabs = setupModal.querySelectorAll('.browser-tab');
+            const panels = setupModal.querySelectorAll('.tab-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    const targetPanel = setupModal.querySelector(`.tab-panel[data-panel="${tab.dataset.tab}"]`);
+                    if (targetPanel) targetPanel.classList.add('active');
+
+                    // Modo ancho para la pestaña server
+                    const card = setupModal.querySelector('.modal-card');
+                    if (card) {
+                        card.classList.toggle('server-mode', tab.dataset.tab === 'server');
+                    }
+                });
+            });
+        }
 
       
 </script>
