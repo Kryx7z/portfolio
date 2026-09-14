@@ -23,6 +23,28 @@ body{
        url("VCR_OSD_MONO_1.001.ttf") format("truetype");
 }
 
+a:not(.widget) {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not(.widget)::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: -1px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+a:not(.widget):hover::after,
+a:not(.widget):focus-visible::after {
+  width: 100%;
+  left: 0;
+}
 
 ::-webkit-scrollbar {
   display: none; 
@@ -278,6 +300,13 @@ body{
     margin-bottom: 6px;
 }
 
+.tab-panel p a {
+    display: inline !important;
+    width: auto !important;
+    min-width: 0 !important;
+    box-sizing: content-box !important;
+}
+
 /* ── Modal: siempre alineado arriba, con su propio scroll interno ── */
 .modal {
     align-items: flex-start !important;  /* pisa el items-center de Tailwind */
@@ -398,8 +427,6 @@ body{
   }
 }
 
-
-
 /* ── Modal: ancho responsive y sin overflow ── */
 .modal-card {
     max-width: min(42rem, calc(100vw - 2rem)) !important;
@@ -430,7 +457,7 @@ body{
     box-sizing: border-box !important;
 }
 
-.tab-panel p, .tab-panel a {
+.tab-panel p {
     word-break: break-word !important;
     overflow-wrap: break-word !important;
     white-space: normal !important;
@@ -440,7 +467,14 @@ body{
     box-sizing: border-box !important;
 }
 
-/* ── Modo server: modal a full ancho, texto en 2 columnas (escritorio) ── */
+.tab-panel p a {
+    display: inline !important;
+    width: auto !important;
+    min-width: 0 !important;
+    box-sizing: content-box !important;
+}
+
+/* ── server: modal a full ancho, texto en 2 columnas (escritorio) ── */
 .modal-card.server-mode {
     max-width: calc(100vw - 4rem) !important;
     width: calc(100vw - 4rem) !important;
@@ -521,4 +555,13 @@ body{
     
  
 
+}
+
+#oneko {
+    z-index: 2147483647 !important;
+    pointer-events: none !important;
+}
+
+.friend-badge::after {
+  display: none;
 }
