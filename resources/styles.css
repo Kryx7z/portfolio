@@ -300,6 +300,8 @@ a:not(.widget):focus-visible::after {
     margin-bottom: 6px;
 }
 
+/* ── Inline links inside text ──
+   Keep links inside paragraphs flowing with the surrounding sentence. */
 .tab-panel p a {
     display: inline !important;
     width: auto !important;
@@ -426,6 +428,8 @@ a:not(.widget):focus-visible::after {
     max-width: 95%;
   }
 }
+
+
 
 /* ── Modal: ancho responsive y sin overflow ── */
 .modal-card {
