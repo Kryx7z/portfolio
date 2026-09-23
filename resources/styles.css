@@ -4,7 +4,7 @@ body{
   word-break: break-word;
   overflow-wrap: break-word;
   color: white;
-  font-family: "VCR OSD Mono", sans-serif;
+  font-family: "Departure Mono", monospace;
   text-align: center;
 }
 
@@ -18,10 +18,13 @@ body{
 }
 
 @font-face {
-  font-family: "VCR OSD Mono";
-  src: url("VCR_OSD_MONO_1.001.woff2") format("woff2"),
-       url("VCR_OSD_MONO_1.001.ttf") format("truetype");
+  font-family: "Departure Mono";
+  src: url("DepartureMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
+
 
 a:not(.widget) {
   position: relative;
@@ -222,7 +225,7 @@ a:not(.widget):focus-visible::after {
 
 .browser-tab {
     padding: 8px 16px;
-    font-family: "VCR OSD Mono", sans-serif;
+    font-family: "Departure Mono", monospace;
     font-size: 14px;
     color: #a3a3a3;
     background-color: #1a1a1acc;
