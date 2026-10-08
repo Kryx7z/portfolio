@@ -1,9 +1,21 @@
-body{
+:root {
+  --ease-modal: cubic-bezier(.16, 1, .3, 1);
+}
+
+@font-face {
+  font-family: "Departure Mono";
+  src: url("DepartureMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
   background-color: #050505;
   image-rendering: optimizespeed;
   word-break: break-word;
   overflow-wrap: break-word;
-  color: white;
+  color: #fff;
   font-family: "Departure Mono", monospace;
   text-align: center;
 }
@@ -17,14 +29,9 @@ body{
   background-color: #050505;
 }
 
-@font-face {
-  font-family: "Departure Mono";
-  src: url("DepartureMono-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+::-webkit-scrollbar {
+  display: none;
 }
-
 
 a:not(.widget) {
   position: relative;
@@ -40,7 +47,7 @@ a:not(.widget)::after {
   left: 50%;
   bottom: -1px;
   background-color: currentColor;
-  transition: width 0.3s ease, left 0.3s ease;
+  transition: width .3s, left .3s;
 }
 
 a:not(.widget):hover::after,
@@ -49,35 +56,25 @@ a:not(.widget):focus-visible::after {
   left: 0;
 }
 
-::-webkit-scrollbar {
-  display: none; 
+.friend-badge::after {
+  display: none;
 }
 
 .ascii {
-  font-family: monospace; 
-  font-size: 16px;          
-  line-height: 16px;        
-  text-align: center;
-  white-space: pre;   
-  margin-top: 40px; 
-  
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 16px;
+  white-space: pre;
+  margin-top: 40px;
 }
 
 #preload {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: absolute;
   font-size: 3rem;
   transition: 1s;
-}
-
-
-#preload p {
-  color: #ffffff;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 1.25rem;
 }
 
 #hidden {
@@ -89,18 +86,12 @@ a:not(.widget):focus-visible::after {
   pointer-events: none;
 }
 
-
-#main p {
-  color: #ffffff;
-}
-  
 #main {
-  position: static;
   width: 100%;
-  text-align: center;
   padding-bottom: 40px;
 }
 
+/* ── Widgets ── */
 .widget-container {
   display: flex;
   flex-wrap: wrap;
@@ -118,10 +109,10 @@ a:not(.widget):focus-visible::after {
   height: 215px;
   background-color: #1717178c;
   border-radius: 10px;
-  border: 2px solid #ffffff;
+  border: 2px solid #fff;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, opacity 0.2s ease-out;
+  transition: transform .2s ease-out, box-shadow .2s ease-out, opacity .2s ease-out;
 }
 
 .widget img {
@@ -137,213 +128,185 @@ a:not(.widget):focus-visible::after {
 }
 
 .widget:hover {
-  opacity: 0.7;
+  opacity: .7;
   cursor: pointer;
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 20px #0009;
 }
 
-.neon-text {
-  text-shadow:
-      0 0 7px #8d8d8d,
-      0 0 14px #f1f1f1;
+/* ── Efectos neon ── */
+.neon-text,
+.browser-tab.active {
+  text-shadow: 0 0 7px #8d8d8d, 0 0 14px #f1f1f1;
 }
 
 .neon-box {
-  box-shadow: 0 0 7px #ffffff;
-  border-radius: 10px
+  box-shadow: 0 0 7px #fff;
+  border-radius: 10px;
+}
+
+/* ── Modales ── */
+.modal {
+  align-items: flex-start;
+  padding: 1.5rem 0;
 }
 
 .modal-open {
-    pointer-events: auto;
+  pointer-events: auto;
 }
 
 .modal-closed {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .overlay {
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
-    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                backdrop-filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                -webkit-backdrop-filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  transition: opacity .45s var(--ease-modal),
+              backdrop-filter .45s var(--ease-modal),
+              -webkit-backdrop-filter .45s var(--ease-modal);
 }
 
 .overlay-open {
-    opacity: 1;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  opacity: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .overlay-closed {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
+  opacity: 0;
 }
 
 .modal-card {
-    opacity: 0;
-    transform: translateY(28px) scale(0.96);
-    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(28px) scale(.96);
+  transition: opacity .4s var(--ease-modal), transform .45s var(--ease-modal);
+  width: 100%;
+  min-width: 0;
+  max-width: min(42rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 3rem);
+  overflow: hidden auto;
 }
 
 .modal.modal-open .modal-card {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .modal.modal-closed .modal-card {
-    opacity: 0;
-    transform: translateY(16px) scale(0.97);
+  opacity: 0;
+  transform: translateY(16px) scale(.97);
 }
 
 .modal-stack {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
+/* ── Ventana tipo navegador (modal setup) ── */
 .browser-window {
-    margin-top: 1rem;
-    border: 2px solid #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #0d0d0dcc;
+  margin-top: 1rem;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #0d0d0dcc;
 }
 
 .browser-tabs {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    padding: 8px 8px 0 8px;
-    background-color: #050505b3;
-    border-bottom: 2px solid #ffffff;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 8px 8px 0;
+  background-color: #050505b3;
+  border-bottom: 2px solid #fff;
 }
 
 .browser-tab {
-    padding: 8px 16px;
-    font-family: "Departure Mono", monospace;
-    font-size: 14px;
-    color: #a3a3a3;
-    background-color: #1a1a1acc;
-    border: 1px solid #ffffff66;
-    border-bottom: none;
-    border-radius: 6px 6px 0 0;
-    cursor: pointer;
-    transition: color 0.2s ease-out, background-color 0.2s ease-out, opacity 0.2s ease-out;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #a3a3a3;
+  background-color: #1a1a1acc;
+  border: 1px solid #fff6;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  transition: color .2s ease-out, background-color .2s ease-out, opacity .2s ease-out;
 }
 
 .browser-tab:hover {
-    color: #ffffff;
-    opacity: 0.9;
+  color: #fff;
+  opacity: .9;
 }
 
 .browser-tab.active {
-    color: #ffffff;
-    background-color: #1e1e1eff;
-    border-color: #ffffff;
-    margin-bottom: -2px;
-    padding-bottom: 10px;
-    text-shadow:
-        0 0 7px #8d8d8d,
-        0 0 14px #f1f1f1;
-}
-
-.browser-window {
-    min-width: 0;
-    overflow: hidden;
+  color: #fff;
+  background-color: #1e1e1e;
+  border-color: #fff;
+  margin-bottom: -2px;
+  padding-bottom: 10px;
 }
 
 .browser-body {
-    padding: 20px;
-    text-align: left;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-width: 0;
-    max-width: 100%;
-    box-sizing: border-box;
+  padding: 20px;
+  text-align: left;
+  overflow: hidden auto;
 }
 
 .tab-panel {
-    min-width: 0;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.tab-panel p {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-    hyphens: auto;
-    max-width: 100%;
-    min-width: 0;
-}
-
-.modal-card {
-    min-width: 0;
-    max-width: min(672px, calc(100vw - 2rem)) !important;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.tab-panel {
-    display: none;
+  display: none;
+  overflow: hidden;
 }
 
 .tab-panel.active {
-    display: block;
+  display: block;
+}
+
+.tab-panel p {
+  hyphens: auto;
 }
 
 .tab-panel-title {
-    font-weight: bold;
-    text-decoration: underline;
-    margin-bottom: 6px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 6px;
 }
 
-/* ── Inline links inside text ──
-   Keep links inside paragraphs flowing with the surrounding sentence. */
-.tab-panel p a {
-    display: inline !important;
-    width: auto !important;
-    min-width: 0 !important;
-    box-sizing: content-box !important;
+.modal-card.server-mode {
+  width: calc(100vw - 4rem);
+  max-width: calc(100vw - 4rem);
 }
 
-/* ── Modal: siempre alineado arriba, con su propio scroll interno ── */
-.modal {
-    align-items: flex-start !important;  /* pisa el items-center de Tailwind */
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+.modal-card.server-mode .browser-body {
+  max-height: 65vh;
+  font-size: 15px;
 }
 
-.modal-card {
-    max-height: calc(100vh - 3rem) !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
+.modal-card.server-mode .tab-panel {
+  column-count: 2;
+  column-gap: 3rem;
 }
 
-/* El cuadro gris del modal (el div .relative), fallback por si el navegador no soporta .modal-card */
-.modal .relative {
-    max-height: calc(100vh - 3rem);
-    overflow-y: auto;
+.modal-card.server-mode .tab-panel p {
+  break-inside: avoid;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-/* ── Bloqueo de scroll del fondo mientras hay un modal abierto ──
-   Solo en dispositivos táctiles/pantallas pequeñas: en escritorio con
-   ratón no hace falta, ahí no se produce el scroll accidental. */
-@media (max-width: 1024px), (pointer: coarse) {
-  html.modal-locked,
-  body.modal-locked {
-    overflow: hidden !important;
-    height: 100%;
-  }
+.modal-card.server-mode .tab-panel-title {
+  break-after: avoid;
 }
 
+#oneko {
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+}
+
+/* ── Responsive ── */
+
+/* Tablets: widgets algo más pequeños */
 @media (min-width: 641px) and (max-width: 1024px) {
-
   .widget-container {
     margin-top: 60px;
   }
@@ -360,8 +323,38 @@ a:not(.widget):focus-visible::after {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
+  .modal-card.server-mode {
+    width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
+  }
 
+  .modal-card.server-mode .browser-body {
+    max-height: 60vh;
+    font-size: 14px;
+  }
+
+  .modal-card.server-mode .tab-panel {
+    column-gap: 1.5rem;
+  }
+
+  .modal-card.server-mode .tab-panel p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+/* pantallas pequeñas */
+@media (max-width: 1024px), (pointer: coarse) {
+  html.modal-locked,
+  body.modal-locked {
+    overflow: hidden !important;
+    height: 100%;
+  }
+}
+
+/* Móviles */
+@media (max-width: 640px) {
   #main {
     margin: 10px auto 40px;
   }
@@ -393,23 +386,21 @@ a:not(.widget):focus-visible::after {
   .browser-tabs {
     overflow-x: auto;
     scrollbar-width: none;
-    flex-wrap: nowrap;
-  }
-
-  .browser-body {
-    padding: 14px;
-    overflow-x: hidden;
-  }
-
-  .tab-panel p {
-    font-size: 14px;
-    line-height: 1.5;
   }
 
   .browser-tab {
     flex-shrink: 0;
     padding: 6px 12px;
     font-size: 12px;
+  }
+
+  .browser-body {
+    padding: 14px;
+  }
+
+  .tab-panel p {
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .ascii {
@@ -419,156 +410,18 @@ a:not(.widget):focus-visible::after {
   }
 
   small {
-    text-shadow:
-    0 0 7px #000000,
-    0 0 14px #000000;
-    color: white;
-
+    color: #fff;
+    text-shadow: 0 0 7px #000, 0 0 14px #000;
   }
 
-  .modal .relative {
-    width: 100%;
-    max-width: 95%;
+  .modal-card,
+  .modal-card.server-mode {
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+    padding: 1rem;
   }
-}
 
-
-
-/* ── Modal: ancho responsive y sin overflow ── */
-.modal-card {
-    max-width: min(42rem, calc(100vw - 2rem)) !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    min-width: 0 !important;
-}
-
-.browser-window {
-    min-width: 0 !important;
-    width: 100% !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-}
-
-.browser-body {
-    overflow-x: hidden !important;
-    min-width: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-}
-
-.tab-panel {
-    min-width: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-.tab-panel p {
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    white-space: normal !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    display: block !important;
-    box-sizing: border-box !important;
-}
-
-.tab-panel p a {
-    display: inline !important;
-    width: auto !important;
-    min-width: 0 !important;
-    box-sizing: content-box !important;
-}
-
-/* ── server: modal a full ancho, texto en 2 columnas (escritorio) ── */
-.modal-card.server-mode {
-    max-width: calc(100vw - 4rem) !important;
-    width: calc(100vw - 4rem) !important;
-}
-
-.modal-card.server-mode .browser-window {
-    width: 100% !important;
-}
-
-.modal-card.server-mode .browser-body {
-    width: 100% !important;
-    max-height: 65vh !important;
-    overflow-y: auto !important;
-    font-size: 15px !important;
-}
-
-.modal-card.server-mode .tab-panel {
-    width: 100% !important;
-    column-count: 2 !important;
-    column-gap: 3rem !important;
-}
-
-.modal-card.server-mode .tab-panel p {
-    break-inside: avoid !important;
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-    width: auto !important;
-}
-
-.modal-card.server-mode .tab-panel-title {
-    break-after: avoid !important;
-    font-size: 15px !important;
-}
-
-/* ── Tablets (iPad y similares): se mantienen las 2 columnas, pero
-   escaladas para que quepan sin desbordar la pantalla ── */
-@media (max-width: 1024px) {
-    .modal-card.server-mode {
-        max-width: calc(100vw - 2rem) !important;
-        width: calc(100vw - 2rem) !important;
-    }
-
-    .modal-card.server-mode .browser-body {
-        max-height: 60vh !important;
-        font-size: 14px !important;
-    }
-
-    .modal-card.server-mode .tab-panel {
-        column-gap: 1.5rem !important;
-    }
-
-    .modal-card.server-mode .tab-panel p {
-        font-size: 13px !important;
-        line-height: 1.5 !important;
-    }
-
-    .modal-card.server-mode .tab-panel-title {
-        font-size: 14px !important;
-    }
-}
-
-/* ── Móviles: la pestaña server pasa a 1 sola columna ── */
-@media (max-width: 640px) {
-    .modal-card,
-    .modal-card.server-mode {
-        max-width: calc(100vw - 1rem) !important;
-        width: calc(100vw - 1rem) !important;
-        padding: 1rem !important;
-    }
-
-    .modal-card.server-mode .tab-panel {
-        column-count: 1 !important;
-    }
-
-    .modal-card.server-mode .browser-body {
-        max-height: 60vh !important;
-    }
-    
- 
-
-}
-
-#oneko {
-    z-index: 2147483647 !important;
-    pointer-events: none !important;
-}
-
-.friend-badge::after {
-  display: none;
+  .modal-card.server-mode .tab-panel {
+    column-count: 1;
+  }
 }
