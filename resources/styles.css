@@ -66,6 +66,10 @@ a:not(.widget):focus-visible::after {
   line-height: 16px;
   white-space: pre;
   margin-top: 40px;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 #preload {
@@ -97,7 +101,7 @@ a:not(.widget):focus-visible::after {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .widget {
@@ -145,57 +149,40 @@ a:not(.widget):focus-visible::after {
   border-radius: 10px;
 }
 
-/* ── Modales ── */
+/* ── Modales (en la página, sin overlay) ── */
 .modal {
-  align-items: flex-start;
-  padding: 1.5rem 0;
-}
-
-.modal-open {
-  pointer-events: auto;
-}
-
-.modal-closed {
-  pointer-events: none;
-}
-
-.overlay {
-  backdrop-filter: blur(0);
-  -webkit-backdrop-filter: blur(0);
-  transition: opacity .45s var(--ease-modal),
-              backdrop-filter .45s var(--ease-modal),
-              -webkit-backdrop-filter .45s var(--ease-modal);
-}
-
-.overlay-open {
-  opacity: 1;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.overlay-closed {
-  opacity: 0;
+  width: 100%;
+  margin-top: 30px;
+  padding: 0 1rem;
 }
 
 .modal-card {
-  opacity: 0;
-  transform: translateY(28px) scale(.96);
-  transition: opacity .4s var(--ease-modal), transform .45s var(--ease-modal);
   width: 100%;
-  min-width: 0;
   max-width: min(42rem, calc(100vw - 2rem));
-  max-height: calc(100vh - 3rem);
-  overflow: hidden auto;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-modal), transform 1s var(--ease-modal);
 }
 
 .modal.modal-open .modal-card {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .modal.modal-closed .modal-card {
   opacity: 0;
-  transform: translateY(16px) scale(.97);
+  transform: translateY(40px);
+}
+
+/* Las cards se desvanecen / reaparecen */
+.fade-el {
+  transition: opacity .5s ease-out;
+}
+
+.fade-el.cards-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .modal-stack {
@@ -308,7 +295,7 @@ a:not(.widget):focus-visible::after {
 /* Tablets: widgets algo más pequeños */
 @media (min-width: 641px) and (max-width: 1024px) {
   .widget-container {
-    margin-top: 60px;
+    margin-top: 25px;
   }
 
   .widget {
@@ -344,15 +331,6 @@ a:not(.widget):focus-visible::after {
   }
 }
 
-/* pantallas pequeñas */
-@media (max-width: 1024px), (pointer: coarse) {
-  html.modal-locked,
-  body.modal-locked {
-    overflow: hidden !important;
-    height: 100%;
-  }
-}
-
 /* Móviles */
 @media (max-width: 640px) {
   #main {
@@ -362,7 +340,7 @@ a:not(.widget):focus-visible::after {
   .widget-container {
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 20px;
     gap: 14px;
   }
 
@@ -424,4 +402,9 @@ a:not(.widget):focus-visible::after {
   .modal-card.server-mode .tab-panel {
     column-count: 1;
   }
+}
+
+/* Asegura que .hidden gane sobre display:flex de .widget-container */
+.hidden {
+  display: none !important;
 }

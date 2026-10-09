@@ -26,20 +26,26 @@
   
 <h1>
     <pre class="ascii neon-text">
-██╗  ██╗██████╗ ██╗   ██╗██╗  ██╗
-██║ ██╔╝██╔══██╗╚██╗ ██╔╝╚██╗██╔╝
-█████╔╝ ██████╔╝ ╚████╔╝  ╚███╔╝ 
-██╔═██╗ ██╔══██╗  ╚██╔╝   ██╔██╗ 
-██║  ██╗██║  ██║   ██║   ██╔╝ ██╗
-╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+ █▄▄   ▐█▄                                       
+ █▓▓█  ▐▓▒▒░                 ▄▄   ▄▄█        █▄▄ 
+▄▓▓▒▒ ▄▓▓░░  ▄▓▓▄▄ ▄▄▄     ▄▒▓█  █░▒█ ▄▓▓▄▄  ▒░██
+ ▀▒░█▀▀█▓▒▄   ▀▒░▒▀▀█▓▒▄  ▄░░▒█  ██░▒ ▀▒▓▒░  ▒▒░█
+ ▒░██   ▒░░▄  ▒░██   ▒░░▄ ▀██░▌  ███░  ▀░▒░▒▄█▒▀ 
+ ░███   ░██▀  ░███   ▀▀▀   ▀███ ▄████   ▄▒▒▀██░▒▄
+ ███▀   ██▀   ███▀           ▀▀█▀████  ▄░░▀  ▒░▓█
+ █▀   ▄▀▀     █▀              ▄  █▓▓█ ▐███   ░▓█▀
+                            ▄██▌ █▒▒█ ▀███▌  █▀  
+                           ▐▀▀██▄▓▓▓█   ▀▀       
+                               ▀▀▀▀▀
     </pre>
 </h1>
-<h2>Song: SMOKEDOPE2016 - EASTBAY</h2>
 
 
         <div id="main">
         
-                <div class="widget-container">
+                <div id="stage">
+
+                <div class="widget-container fade-el" id="cards">
 
                     <a href="#" class="widget neon-box neon-text openCard" data-target="modal-about">
                         <img src="media/about.png" alt="about"/>
@@ -56,32 +62,15 @@
                         <span>/setup</span>
                     </a>
 
-                    <a href="https://archive.kryx.lol" class="widget neon-box neon-text" target="_blank">
-                        <img src="media/archive.png" alt="archive"/>
-                        <span>/archive</span>
-                    </a>
 
                 </div>
-                <br><br>
-                <small><a href="https://github.com/Kryx7z/portfolio" class="neon-text" target="_blank">[Website source code]</a></small>
-                <br>
-                <small>Last update: 02/9/2026</small>
-
-        </div>
-
-
-
-</div>
-
 
 <!-- modal about me -->
 
-<div id="modal-about" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
-
-        <div class="overlay absolute inset-0 bg-black/20"></div>
+<div id="modal-about" class="modal hidden modal-closed">
 
 
-        <div class="relative modal-card bg-neutral-900/80 border border-white rounded-lg p-6 max-w-2xl w-full shadow-xl text-white z-10 neon-box text-left">
+        <div class="modal-card bg-neutral-900/80 border border-white rounded-lg p-6 shadow-xl text-white neon-box text-left">
         <h2 class="text-3xl mb-4 neon-text">About Me</h2>
         <p class="mb-6">Hey! I’m Kryx, a technology enthusiast from Spain. In terms of technology, I’m interested in networking, cybersecurity, and a bit of programming (i dont really like it tbh). I enjoy experimenting with servers on my Raspberry Pi and other devices. Even though I love technology, it’s not my only hobby. I also enjoy music, skateboarding, and fashion.</p>
         <p class="mb-6">I made this website out of boredom just to do something. If I ever apply for a j*b, I won’t be showing this website, it’s just a simple portfolio for my online persona.</p>
@@ -125,7 +114,6 @@
            <p class="mb-2 text-center">Twitter/X: <a href="https://x.com/Kryx7z" class="neon-text">@Kryx7z</a></p>
            <p class="mb-2 text-center">Github: <a href="https://github.com/Kryx7z" class="neon-text">@Kryx7z</a></p>
            <br>
-           <p class="mb-2 text-center">Friends!:</p>
            <div class="text-center mb-2">       
                 <a href="https://transgirl.fyi/" target="_blank" class="friend-badge">
                     <img src="https://transgirl.fyi/violet88x31.png" alt="Violet 88x31 banner" style="display: inline-block;">
@@ -145,12 +133,10 @@
 
 
 <!-- modal projects -->
-<div id="modal-projects" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
-
-    <div class="overlay absolute inset-0 bg-black/20"></div>
+<div id="modal-projects" class="modal hidden modal-closed">
 
 
-    <div class="relative modal-card bg-neutral-900/80 border border-white rounded-lg p-6 max-w-2xl w-full shadow-xl text-white z-10 neon-box text-left">
+    <div class="modal-card bg-neutral-900/80 border border-white rounded-lg p-6 shadow-xl text-white neon-box text-left">
         <h2 class="text-3xl mb-4 neon-text">My Projects</h2>
         <p class="mb-6">Currently, I don’t have any big public projects that are active or worth noting. I’ve contributed to several open-source projects and worked on private ones, either on my own or with friends.</p>
         <p class="mb-6">Some of my projects that are actually worth noting are:</p>
@@ -160,7 +146,7 @@
             <div class="flex-1">
                 <ul class="list-disc list-inside ml-2"> 
                     
-                    <a href="https://github.com/Kryx7z/Conglomerate-cs2" class="neon-text" target="_blank"><li>Conglomerate-Cs2</li></a> <p>A free open source internal CS2 cheat based on "TempleWare", with new features and up-to date (until i get bored and decide to not update it)</p>
+                    <li><a href="https://github.com/Kryx7z/Conglomerate-cs2" class="neon-text" target="_blank">Conglomerate-Cs2</a></li> <p>A free open source internal CS2 cheat based on "TempleWare", with new features and up-to date (until i get bored and decide to not update it)</p>
 
                 </ul>
             </div>
@@ -177,12 +163,10 @@
 
 
 <!-- modal setups -->
-<div id="modal-setup" class="modal fixed inset-0 hidden z-50 flex items-center justify-center modal-closed">
-
-    <div class="overlay absolute inset-0 bg-black/20"></div>
+<div id="modal-setup" class="modal hidden modal-closed">
 
 
-    <div class="relative modal-card bg-neutral-900/80 border border-white rounded-lg p-6 max-w-2xl w-full shadow-xl text-white z-10 neon-box text-left">
+    <div class="modal-card bg-neutral-900/80 border border-white rounded-lg p-6 shadow-xl text-white neon-box text-left">
         <h2 class="text-3xl mb-4 neon-text">My Setup</h2>
 
         <div class="browser-window">
@@ -198,39 +182,39 @@
 
                 <div class="tab-panel active" data-panel="main">
                     <p class="mb-4">Although I don't really like having the latest tech (which is going to sound hypocritical), I also don't like missing out on features or having to keep track of how many days of support i have left on my product that just launched.</p>
-                    <p>In my daily basis i use different pieces of tech, but here are the most "important", each with its own tab up above:</p>
+                    <p>In my daily basis i use different pieces of tech, but here are the most "important", each with its own tab up above</p>
                 </div>
 
                 <div class="tab-panel" data-panel="daily">
                     <p class="tab-panel-title">My main PC</p>
-                    <p class="mb-4">built it with a friend, it has an RTX 5070, with a Ryzen 7 7700X, 32GB of RAM and a 480GB SSD, it used to have a 1TB nvme, i too wonder where it is now...</p>
+                    <p class="mb-4">built it with a friend, it has an RTX 5070, with a Ryzen 7 7700X, 32GB of RAM and a 480GB SSD, it used to have a 1TB nvme, I too wonder where it is now...</p>
                     <p class="tab-panel-title">Thinkpad E470</p>
-                    <p>i haven't seen many people with this model of Thinkpad, got it for 80€ and replaced the battery of it, i also upgraded it to 12GB of RAM DDR4. For the price i found it kinda fair, currently it runs on Debian LTS</p>
+                    <p>i haven't seen many people with this model of Thinkpad, got it for 80€ and replaced the battery of it, I also upgraded it to 12GB of RAM DDR4. For the price i found it kinda fair, currently it runs on Debian LTS</p>
                 </div>
 
                 <div class="tab-panel" data-panel="server">
-                    <p class="mb-4">Before you call me a "performative shizo" or sum bs like that, let me explain each service i run here and why. Of course i dont self-host everything for extrictly privacy reasons, i use an iPhone and i post on twitter while i watch YouTube to eat and scroll on instagram. This was more of a fun project because i had the opportunity to get all i needed for the server for free, including the raspberry pi and the storage.</p>
+                    <p class="mb-4">Before you call me a "performative shizo" or sum bs like that, let me explain each service i run here and why. Of course I dont self-host everything for extrictly privacy reasons, I use an iPhone and I post on twitter while I watch YouTube to eat and scroll on instagram. This was more of a fun project because I had the opportunity to get all I needed for the server for free, including the raspberry pi and the storage.</p>
                     <p class="tab-panel-title">Raspberry Pi 4</p>
-                    <p class="mb-4">A Raspberry Pi 4 Model B with 4GB of RAM that like i mentioned before, i got for free, with a 4TB HDD on a external case as the server storage and a SD card for the OS and others. Enough power and storage for my things.</p>
+                    <p class="mb-4">A Raspberry Pi 4 Model B with 4GB of RAM that like I mentioned before, 	I got for free, with a 4TB HDD on a external case as the server storage and a SD card for the OS and others. Enough power and storage for my things.</p>
                     
                     <p class="tab-panel-title">Nextcloud - Cloud Storage</p>
-                    <p class="mb-4">Besides Drive, tell me any other free alternative that doesn´t suck and gives you a razonable amount of storage, im a person who needs A TON of storage, drive wasn´t enough, google at the moment was (and is) one of my less favorite companies so i had to find an alternative. By using Nextcloud im able to have full control of my files and not them getting stolen since im a person of interest and/or being used to train AIs, i also have more storage, in my server i have 1TB dedicated to NextCloud while the free plan of drive gives you 15GB. Right now the only Google service i use its YouTube.</p>
+                    <p class="mb-4">Besides Drive, tell me any other free alternative that doesn´t suck and gives you a razonable amount of storage, im a person who needs A TON of storage, drive wasn´t enough, google at the moment was (and is) one of my less favorite companies so i had to find an alternative. By using Nextcloud im able to have full control of my files and not them getting stolen since im a person of interest and/or being used to train AIs, I also have more storage, in my server I have 1TB dedicated to NextCloud while the free plan of drive gives you 15GB. Right now the only Google service I use its YouTube.</p>
 
                     <p class="tab-panel-title">Jellyfin - Media Server</p>
-                    <p class="mb-4">Im from Spain where streaming movies can be a pain in the ass, rn every country has their corresponding lenguage to the backrooms movie in streaming except or Spain, or South Park (i love it) where the last seasons are not avaliable here but are actually dubbed to castillian. Obsession too, its not in streaming but the castillian version leaked somehow, the point i want to make is that i shouldn´t be going trough several streaming services that are probably going to remove the media i want to watch because spanish people LOOOVE their shitty comedy shows and theres not any demand for any show/movie that requires more than  30 of IQ. I should have everything i want on a single service whenever i want. self-hosting my media its the easy way out</p>
+                    <p class="mb-4">Im from Spain where streaming movies can be a pain in the ass, rn every country has their corresponding lenguage to the backrooms movie in streaming except or Spain, or South Park where the last seasons are not avaliable here but are actually dubbed to castillian. Obsession too, its not in streaming but the castillian version leaked somehow, the point i want to make is that i shouldn´t be going trough several streaming services that are probably going to remove the media I want to watch because spanish people LOOOVE their shitty comedy shows and theres not any demand for any show/movie that requires more than  30 of IQ. I should have everything I want on a single service whenever I want. self-hosting my media its the easy way out</p>
 
                     <p class="tab-panel-title">MeTube - Media downloader</p>
                     <p class="mb-4">Spanish goverment is known for blocking websites like <a href="https://x.com/kryx7z/status/2059223221723951453" target="_blank" class="neon-text">media downloaders and others.</a> Also most of the ones you find on a search are trash and dont accept half the services MeTube does, wich allows me to scrap videos from websites that usually dont have a native download option.</p>
 
                     <p class="tab-panel-title">Aria2 - Download manager</p>
-                    <p>My fucking SSD explodes if i try downloading something on it, i just download all my stuff to the server and send it to my main computer, it works well and it stops my SSD from going 100% when im doing and downloading something at the same time.</p>
+                    <p>My fucking SSD explodes if I try downloading something on it, I just download all my stuff to the server and send it to my main computer, it works well and it stops my SSD from going 100% when im doing and downloading something at the same time.</p>
                 </div>
 
                 <div class="tab-panel" data-panel="misc">
                     <p class="tab-panel-title">iPad A16</p>
-                    <p class="mb-4">got it during <em>The incident,</em> i also got it before the price went up, mainly used for note-taking.</p>
+                    <p class="mb-4">got it during <em>The incident,</em> I also got it before the price went up, mainly used for note-taking.</p>
                     <p class="tab-panel-title">iPhone 16e</p>
-                    <p>i wonder where my iPhone 13 is!</p>
+                    <p>I wonder where my iPhone 13 is!</p>
                 </div>
 
             </div>
@@ -243,6 +227,22 @@
             </button>
         </div>
     </div>
+</div>
+
+
+
+        </div>
+                <div id="footer-info" class="fade-el">
+                <br><br>
+                <small><a href="https://github.com/Kryx7z/portfolio" class="neon-text" target="_blank">[Website source code]</a></small>
+                <br>
+                <small>Last update: 02/9/2026</small>
+                </div>
+
+        </div>
+
+
+
 </div>
 
 
@@ -392,71 +392,70 @@
 
 
 
-        // MODALES 
+        // MODALES (se muestran en la página principal, sin overlay)
 
-        // Bloqueo de scroll del fondo mientras haya algún modal abierto
-        // (el CSS decide si esto aplica según el dispositivo/tamaño de pantalla)
-        let openModalCount = 0;
+        const fadeEls = [document.getElementById('cards'), document.getElementById('footer-info')];
+        const FADE_CARDS = 500;   // ms, debe coincidir con el CSS
+        const FADE_MODAL = 1000;  // ms, debe coincidir con el CSS
+        let busy = false;
 
-        function lockBodyScroll() {
-            openModalCount++;
-            document.documentElement.classList.add('modal-locked');
-            document.body.classList.add('modal-locked');
+        function openModal(modal) {
+            if (busy) return;
+            busy = true;
+
+            // 1) las cards se desvanecen
+            fadeEls.forEach(el => el.classList.add('cards-hidden'));
+
+            setTimeout(() => {
+                fadeEls.forEach(el => el.classList.add('hidden'));
+                window.scrollTo({ top: 0 });
+
+                // 2) el modal aparece con fade + slide up lento
+                modal.classList.remove('hidden');
+                void modal.offsetWidth; // fuerza reflow para que arranque la transición
+                modal.classList.remove('modal-closed');
+                modal.classList.add('modal-open');
+
+                setTimeout(() => { busy = false; }, FADE_MODAL);
+            }, FADE_CARDS);
         }
 
-        function unlockBodyScroll() {
-            openModalCount = Math.max(0, openModalCount - 1);
-            if (openModalCount === 0) {
-                document.documentElement.classList.remove('modal-locked');
-                document.body.classList.remove('modal-locked');
-            }
+        function closeModal(modal) {
+            if (busy) return;
+            busy = true;
+
+            // 1) el modal se desvanece y baja lentamente
+            modal.classList.remove('modal-open');
+            modal.classList.add('modal-closed');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                window.scrollTo({ top: 0 });
+
+                // 2) las cards vuelven
+                fadeEls.forEach(el => el.classList.remove('hidden'));
+                void document.body.offsetWidth;
+                fadeEls.forEach(el => el.classList.remove('cards-hidden'));
+
+                setTimeout(() => { busy = false; }, FADE_CARDS);
+            }, FADE_MODAL);
         }
 
         document.querySelectorAll('.openCard').forEach(card => {
             card.addEventListener('click', (e) => {
                 e.preventDefault();
-                const modalId = card.getAttribute('data-target');
-                const modal = document.getElementById(modalId);
-
-                modal.classList.remove('hidden');
-                lockBodyScroll();
-
-                const overlay = modal.querySelector('.overlay');
-
-                // Animación del modal y del cristal
-                requestAnimationFrame(() => {
-                    modal.classList.remove('modal-closed');
-                    modal.classList.add('modal-open');
-
-                    overlay.classList.remove('overlay-closed');
-                    overlay.classList.add('overlay-open');
-                });
-
+                openModal(document.getElementById(card.getAttribute('data-target')));
             });
         });
 
         document.querySelectorAll('.modal').forEach(modal => {
-            const overlay = modal.querySelector('.overlay');
-            const closeBtn = modal.querySelector('.closeCard');
+            modal.querySelector('.closeCard').addEventListener('click', () => closeModal(modal));
+        });
 
-            const closeModal = () => {
-            modal.classList.remove('modal-open');
-            modal.classList.add('modal-closed');
-            unlockBodyScroll();
-
-            const overlay = modal.querySelector('.overlay');
-            overlay.classList.remove('overlay-open');
-            overlay.classList.add('overlay-closed');
-
-
-                // Espera la animación antes de esconderlo
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
-            };
-
-            closeBtn.addEventListener('click', closeModal);
-            overlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            const openOne = document.querySelector('.modal.modal-open');
+            if (openOne) closeModal(openOne);
         });
 
         // TABS MODAL SETUP (estilo navegador)
