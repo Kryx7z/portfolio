@@ -138,7 +138,6 @@ a:not(.widget):focus-visible::after {
   box-shadow: 0 10px 20px #0009;
 }
 
-/* ── Efectos neon ── */
 .neon-text,
 .browser-tab.active {
   text-shadow: 0 0 7px #8d8d8d, 0 0 14px #f1f1f1;
@@ -149,7 +148,7 @@ a:not(.widget):focus-visible::after {
   border-radius: 10px;
 }
 
-/* ── Modales (en la página, sin overlay) ── */
+/* ── Modales  ── */
 .modal {
   width: 100%;
   margin-top: 30px;
@@ -175,7 +174,6 @@ a:not(.widget):focus-visible::after {
   transform: translateY(40px);
 }
 
-/* Las cards se desvanecen / reaparecen */
 .fade-el {
   transition: opacity .5s ease-out;
 }
@@ -285,6 +283,44 @@ a:not(.widget):focus-visible::after {
   break-after: avoid;
 }
 
+/* ── Webring box ── */
+.webring-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 28rem;
+  margin: 1.25rem auto 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.webring-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.webring-code {
+  width: 100%;
+  resize: none;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #fff;
+  background-color: #050505;
+  border: 1px solid #fff6;
+  border-radius: 6px;
+  text-align: left;
+  word-break: break-all;
+}
+
+.webring-code:focus {
+  outline: none;
+  border-color: #fff;
+}
+
 #oneko {
   z-index: 2147483647 !important;
   pointer-events: none !important;
@@ -292,7 +328,7 @@ a:not(.widget):focus-visible::after {
 
 /* ── Responsive ── */
 
-/* Tablets: widgets algo más pequeños */
+/* Tablets */
 @media (min-width: 641px) and (max-width: 1024px) {
   .widget-container {
     margin-top: 25px;

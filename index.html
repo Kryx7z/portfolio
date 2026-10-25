@@ -124,8 +124,15 @@
                     <img src="https://soggy.cat/static/ssoggycat/team/images/88x31/ssoggycat-button.gif" alt="goog.." style="display: inline-block;">
                 </a>                                 
            </div>
- 
-                <div class="text-center mt-6"> 
+
+           <div class="webring-box text-center">
+                <p class="webring-title neon-text">my webring</p>
+                <img src="button.gif" alt="Kryx 88x31 button" width="88" height="31" style="display: inline-block;">
+                <textarea id="webring-code" class="webring-code" readonly rows="3" spellcheck="false">&lt;a href="https://kryx.lol"&gt;&lt;img src="https://kryx.lol/button.gif" alt="Kryx" width="88" height="31"&gt;&lt;/a&gt;</textarea>
+                <button type="button" id="webring-copy" class="neon-text cursor-pointer">[Copy]</button>
+           </div>
+
+                <div class="text-center mt-6">
             <button class="closeCard text-white hover:text-gray-300 neon-text cursor-pointer">
                 [Close]
             </button>
@@ -459,6 +466,23 @@
             const openOne = document.querySelector('.modal.modal-open');
             if (openOne) closeModal(openOne);
         });
+
+        // COPIAR CODIGO DEL WEBRING
+        const webringCopy = document.getElementById('webring-copy');
+        const webringCode = document.getElementById('webring-code');
+        if (webringCopy && webringCode) {
+            webringCode.addEventListener('focus', () => webringCode.select());
+            webringCopy.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(webringCode.value);
+                } catch (err) {
+                    webringCode.select();
+                    document.execCommand('copy');
+                }
+                webringCopy.textContent = '[Copied!]';
+                setTimeout(() => { webringCopy.textContent = '[Copy]'; }, 1500);
+            });
+        }
 
         // TABS MODAL SETUP (estilo navegador)
         const setupModal = document.getElementById('modal-setup');
