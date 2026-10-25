@@ -1,15 +1,4 @@
-/*
- * Oneko.js integration for Kryx.lol
- * Based on: https://github.com/adryd325/oneko.js
- * Licensed under the MIT License.
- *
- * This copy is intentionally kept local so the behaviour can be customised.
- * The official Oneko sprite is loaded from the upstream repository.
- */
 (function oneko() {
-  // Always run, including the <3 preload screen and while modals are open.
-  // The original script can stop for prefers-reduced-motion; this site wants
-  // the cat to remain present, so that early return is intentionally omitted.
 
   const nekoEl = document.createElement("div");
   const nekoFile = "https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif";
@@ -79,7 +68,6 @@
 
     document.body.appendChild(nekoEl);
 
-    // Keep the cat hidden during preload, then fade it in together with #hidden.
     const revealNeko = () => {
       nekoEl.style.display = "block";
       nekoEl.style.opacity = "0";
@@ -92,7 +80,6 @@
 
     const preload = document.getElementById("preload");
     if (preload) {
-      // The same mousedown that reveals the main scene also starts Neko's fade.
       document.addEventListener("mousedown", revealNeko, { once: true, passive: true });
     } else {
       revealNeko();
