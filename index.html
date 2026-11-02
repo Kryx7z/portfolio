@@ -72,7 +72,7 @@
 
         <div class="modal-card bg-neutral-900/80 border border-white rounded-lg p-6 shadow-xl text-white neon-box text-left">
         <h2 class="text-3xl mb-4 neon-text">About Me</h2>
-        <p class="mb-6">Hey! I’m Kryx, a technology enthusiast from Spain. In terms of technology, I’m interested in networking, cybersecurity, and a bit of programming (i dont really like it tbh). I enjoy experimenting with servers on my Raspberry Pi and other devices. Even though I love technology, it’s not my only hobby. I also enjoy music, skateboarding, and fashion.</p>
+        <p class="mb-6">Hey! I’m Kryx, a technology enthusiast from Spain. In terms of technology, I’m interested in networking, cybersecurity, and a bit of programming. I enjoy experimenting with servers on my Raspberry Pi and other devices. Even though I love technology, it’s not my only hobby. I also enjoy music, skateboarding, and fashion.</p>
         <p class="mb-6">I made this website out of boredom just to do something. If I ever apply for a j*b, I won’t be showing this website, it’s just a simple portfolio for my online persona.</p>
         <p class="mb-6">Some of my skils include: </p>
 
@@ -110,7 +110,7 @@
            <p class="mb-2 text-center">Conctact:</p>
            <p class="mb-2 text-center">Discord:<a href="https://discord.com/users/1466145706648666185" target="_blank" class="neon-text">@Kryx7z</a></p>
            <p class="mb-2 text-center">Email: <a href="mailto:kryx7z@proton.me" class="neon-text">kryx7z@proton.me</a></p>
-           <p class="mb2 text-center">Dont waste my time if you’re going to contact me.</p>
+           <p class="mb2 text-center">I may be slow to respond, discord is the best way.</p>
            <br>
            <p class="mb-2 text-center">Socials:</p>
            <p class="mb-2 text-center">Twitter/X: <a href="https://x.com/Kryx7z" class="neon-text" target="_blank">@Kryx7z</a></p>
@@ -136,9 +136,9 @@
 
            <div class="webring-box text-center">
                 <p class="webring-title neon-text">my webring</p>
-                <img src="button.gif" alt="Kryx 88x31 button" width="88" height="31" style="display: inline-block;">
-                <textarea id="webring-code" class="webring-code" readonly rows="3" spellcheck="false">&lt;a href="https://kryx.lol"&gt;&lt;img src="https://kryx.lol/button.gif" alt="Kryx" width="88" height="31"&gt;&lt;/a&gt;</textarea>
-                <button type="button" id="webring-copy" class="neon-text cursor-pointer">[Copy]</button>
+                <button type="button" id="webring-copy" class="webring-copy" aria-label="Copy webring code">
+                    <img src="button.gif" alt="Kryx 88x31 button" width="88" height="31">
+                </button>
            </div>
 
                 <div class="text-center mt-6">
@@ -159,16 +159,22 @@
         <p class="mb-6">Currently, I don’t have any big public projects that are active or worth noting. I’ve contributed to several open-source projects and worked on private ones, either on my own or with friends.</p>
         <p class="mb-6">Some of my projects that are actually worth noting are:</p>
 
-        <div class="modal-stack"> 
+        <div class="project-grid">
 
-            <div class="flex-1">
-                <ul class="list-disc list-inside ml-2"> 
-                    
-                    <li><a href="https://github.com/Kryx7z/Conglomerate-cs2" class="neon-text" target="_blank">Conglomerate-Cs2</a></li> <p>A free open source internal CS2 cheat based on "TempleWare", with new features and up-to date (until i get bored and decide to not update it)</p>
+            <a href="https://github.com/Kryx7z/Conglomerate-cs2" target="_blank" class="project-card">
+                <div class="project-thumb">
+                    <img src="https://raw.githubusercontent.com/Kryx7z/Conglomerate-Cs2/main/images/image.png" alt="Conglomerate-Cs2" onerror="this.remove()">
+                </div>
+                <div class="project-info">
+                    <span class="project-name neon-text">Conglomerate-Cs2</span>
+                    <p>A free open source internal CS2 cheat based on "TempleWare", with new features and up-to date (until i get bored and decide to not update it)</p>
+                    <div class="project-tags">
+                        <span>C++</span>
+                        <span>CS2</span>
+                    </div>
+                </div>
+            </a>
 
-                </ul>
-            </div>
-            
         </div>
 
                 <div class="text-center mt-6"> 
@@ -254,7 +260,7 @@
                 <br><br>
                 <small><a href="https://github.com/Kryx7z/portfolio" class="neon-text" target="_blank">[Website source code]</a></small>
                 <br>
-                <small>Last update: 02/9/2026</small>
+                <small>Last update: 03/11/2026</small>
                 </div>
 
         </div>
@@ -263,6 +269,13 @@
 
 </div>
 
+
+    <span id="webring-label" class="webring-label neon-text" aria-live="polite">
+        <span id="webring-track" class="webring-track">
+            <span class="webring-msg active" data-state="hint">[click to copy]</span>
+            <span class="webring-msg" data-state="done" aria-hidden="true">[copied!]</span>
+        </span>
+    </span>
 
     <audio
       id="music"
@@ -478,18 +491,67 @@
 
         // COPIAR CODIGO DEL WEBRING
         const webringCopy = document.getElementById('webring-copy');
-        const webringCode = document.getElementById('webring-code');
-        if (webringCopy && webringCode) {
-            webringCode.addEventListener('focus', () => webringCode.select());
-            webringCopy.addEventListener('click', async () => {
-                try {
-                    await navigator.clipboard.writeText(webringCode.value);
-                } catch (err) {
-                    webringCode.select();
-                    document.execCommand('copy');
+        const webringLabel = document.getElementById('webring-label');
+        const webringTrack = document.getElementById('webring-track');
+        if (webringCopy && webringLabel && webringTrack) {
+            const webringCode = '<a href="https://kryx.lol"><img src="https://kryx.lol/button.gif" alt="Kryx" width="88" height="31"></a>';
+
+            const setLabelState = (state) => {
+                let activeMsg = null;
+                webringTrack.querySelectorAll('.webring-msg').forEach((msg) => {
+                    const on = msg.dataset.state === state;
+                    msg.classList.toggle('active', on);
+                    msg.setAttribute('aria-hidden', on ? 'false' : 'true');
+                    if (on) activeMsg = msg;
+                });
+                if (activeMsg) webringTrack.style.width = activeMsg.offsetWidth + 'px';
+            };
+            setLabelState('hint');
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => setLabelState(webringTrack.querySelector('.webring-msg.active').dataset.state));
+            }
+
+            const placeLabel = (x, y) => {
+                const gap = 14;
+                const maxX = window.innerWidth - webringLabel.offsetWidth - 8;
+                const maxY = window.innerHeight - webringLabel.offsetHeight - 8;
+                webringLabel.style.left = Math.max(8, Math.min(x + gap, maxX)) + 'px';
+                webringLabel.style.top = Math.max(8, Math.min(y + gap, maxY)) + 'px';
+            };
+            const showHint = (e) => {
+                setLabelState('hint');
+                webringLabel.classList.add('visible');
+                if (e && e.type === 'mouseenter') {
+                    placeLabel(e.clientX, e.clientY);
+                } else {
+                    const r = webringCopy.getBoundingClientRect();
+                    placeLabel(r.left + r.width / 2, r.bottom);
                 }
-                webringCopy.textContent = '[Copied!]';
-                setTimeout(() => { webringCopy.textContent = '[Copy]'; }, 1500);
+            };
+            const hideLabel = () => webringLabel.classList.remove('visible');
+
+            webringCopy.addEventListener('mouseenter', showHint);
+            webringCopy.addEventListener('mousemove', (e) => placeLabel(e.clientX, e.clientY));
+            webringCopy.addEventListener('mouseleave', hideLabel);
+            webringCopy.addEventListener('focus', showHint);
+            webringCopy.addEventListener('blur', hideLabel);
+
+            webringCopy.addEventListener('click', async (e) => {
+                try {
+                    await navigator.clipboard.writeText(webringCode);
+                } catch (err) {
+                    const temp = document.createElement('textarea');
+                    temp.value = webringCode;
+                    temp.style.position = 'fixed';
+                    temp.style.opacity = '0';
+                    document.body.appendChild(temp);
+                    temp.select();
+                    document.execCommand('copy');
+                    temp.remove();
+                }
+                setLabelState('done');
+                webringLabel.classList.add('visible');
+                if (e.detail > 0) placeLabel(e.clientX, e.clientY);
             });
         }
 

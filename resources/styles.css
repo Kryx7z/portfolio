@@ -259,28 +259,115 @@ a:not(.widget):focus-visible::after {
 }
 
 .modal-card.server-mode {
-  width: calc(100vw - 4rem);
-  max-width: calc(100vw - 4rem);
+  width: 100%;
+  max-width: min(60rem, calc(100vw - 4rem));
 }
 
 .modal-card.server-mode .browser-body {
-  max-height: 65vh;
-  font-size: 15px;
+  max-height: 60vh;
+  font-size: 14px;
 }
 
 .modal-card.server-mode .tab-panel {
   column-count: 2;
-  column-gap: 3rem;
+  column-gap: 2rem;
 }
 
 .modal-card.server-mode .tab-panel p {
   break-inside: avoid;
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .modal-card.server-mode .tab-panel-title {
   break-after: avoid;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+a.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #1717178c;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  transition: transform .2s ease-out, box-shadow .2s ease-out, opacity .2s ease-out;
+}
+
+a.project-card::after {
+  display: none;
+}
+
+a.project-card:hover {
+  opacity: .8;
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px #0009;
+}
+
+.project-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: #0d0d0d;
+  border-bottom: 2px solid #fff;
+  overflow: hidden;
+}
+
+.project-thumb::before {
+  content: "[ no image ]";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #a3a3a3;
+}
+
+.project-thumb img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  flex: 1;
+}
+
+.project-name {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.project-info p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.project-tags span {
+  padding: 2px 8px;
+  font-size: 12px;
+  color: #a3a3a3;
+  background-color: #1a1a1acc;
+  border: 1px solid #fff6;
+  border-radius: 6px;
 }
 
 /* ── Webring box ── */
@@ -302,23 +389,63 @@ a:not(.widget):focus-visible::after {
   text-decoration: underline;
 }
 
-.webring-code {
-  width: 100%;
-  resize: none;
-  padding: 8px;
-  font-family: inherit;
-  font-size: 13px;
-  color: #fff;
-  background-color: #050505;
-  border: 1px solid #fff6;
-  border-radius: 6px;
-  text-align: left;
-  word-break: break-all;
+.webring-copy {
+  display: inline-block;
+  padding: 0;
+  line-height: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.webring-code:focus {
-  outline: none;
-  border-color: #fff;
+.webring-copy:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.webring-copy img {
+  display: block;
+}
+
+.webring-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483646;
+  padding: 2px 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  background-color: #050505e6;
+  border: 1px solid #fff6;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s ease-out;
+}
+
+.webring-label.visible {
+  opacity: 1;
+}
+
+.webring-track {
+  position: relative;
+  display: block;
+  height: 1.4em;
+  line-height: 1.4em;
+  transition: width .3s var(--ease-modal);
+}
+
+.webring-msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .3s ease-out;
+}
+
+.webring-msg.active {
+  opacity: 1;
 }
 
 #oneko {
@@ -348,7 +475,7 @@ a:not(.widget):focus-visible::after {
 
 @media (max-width: 1024px) {
   .modal-card.server-mode {
-    width: calc(100vw - 2rem);
+    width: 100%;
     max-width: calc(100vw - 2rem);
   }
 
@@ -437,6 +564,10 @@ a:not(.widget):focus-visible::after {
 
   .modal-card.server-mode .tab-panel {
     column-count: 1;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }
 
